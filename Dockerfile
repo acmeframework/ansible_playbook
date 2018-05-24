@@ -1,7 +1,9 @@
-FROM gliderlabs/alpine:3.4
+# Alpine OS 3.4
+# http://dl-cdn.alpinelinux.org/alpine/v3.4/community/x86_64/
+FROM alpine:3.4
 
-RUN \
-  apk-install \
+RUN set -x && \
+  apk add --update \
     bash \
     curl \
     openssh-client \
@@ -32,4 +34,7 @@ ENV ANSIBLE_HOST_KEY_CHECKING False
 ENV ANSIBLE_RETRY_FILES_ENABLED False
 ENV ANSIBLE_ROLES_PATH /ansible/playbooks/roles
 ENV ANSIBLE_SSH_PIPELINING True
+
+ENV PATH /ansible/bin:$PATH
+ENV PYTHONPATH /ansible/lib
 ENV HOME /home/ansible
