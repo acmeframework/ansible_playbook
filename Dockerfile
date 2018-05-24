@@ -6,7 +6,6 @@ FROM alpine:3.4
 RUN set -x && \
   apk add --update \
     bash \
-    curl \
     libffi \
     libxml2 \
     libxslt \
@@ -17,8 +16,6 @@ RUN set -x && \
     py-httplib2 \
     py-jinja2 \
     py-paramiko \
-    py-pip \
-    py-setuptools \
     py-yaml \
 # ***********************************************************
 # The following are installed to allow use of pip and 
@@ -56,8 +53,6 @@ RUN set -x && \
   rm -rf /var/cache/apk/* && \
 # ***********************************************************
 # end removal of temporary "stuff"
-# ***********************************************************
- 
 # ***********************************************************
 # Now setup Ansible "stuff"
 # ***********************************************************
