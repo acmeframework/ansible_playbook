@@ -8,7 +8,7 @@ $buildFolder = "ansible_playbook_build"
 $buildDirectory = "$Env:TMP/$buildFolder"
 $oldLocation = Get-Location
 
-New-Item -Path $buildDirectory
+New-Item -Path $buildDirectory -ItemType "directory"
 Copy-Item Dockerfile $buildDirectory
 
 Set-Location $buildDirectory
